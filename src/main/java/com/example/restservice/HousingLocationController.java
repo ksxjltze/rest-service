@@ -15,10 +15,6 @@ public class HousingLocationController {
     @CrossOrigin(origins = "*")
     @GetMapping("/locations")
     public String getLocationsJson() throws IOException {
-        // ObjectMapper mapper = new ObjectMapper();
-        // InputStream is = new ClassPathResource("housing-locations.json").getInputStream();
-        // return mapper.readValue(is, HousingLocation.class);
-
         InputStream is = new ClassPathResource("housing-locations.json").getInputStream();
         byte[] bytes = is.readAllBytes();
 
