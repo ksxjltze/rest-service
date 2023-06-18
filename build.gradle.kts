@@ -25,3 +25,7 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.jar {
+	exclude("env.properties")
+}
