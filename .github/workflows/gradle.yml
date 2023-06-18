@@ -28,13 +28,12 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - run: 'echo "DB_DATABASE=::add-mask::$DB_NAME\nDB_USER=::add-mask::$DB_USER\nDB_PASSWORD=$::add-mask::DB_PASSWORD\" > env.properties'
+    - run: 'echo "DB_DATABASE=$DB_NAME\nDB_USER=$DB_USER\nDB_PASSWORD=$DB_PASSWORD" > env.properties'
       shell: bash
       env:
         DB_NAME: ${{secrets.DB_NAME}}
         DB_USER: ${{secrets.DB_USER}}
         DB_PASSWORD: ${{secrets.DB_PASSWORD}}
-    - run: 'cat key'
     - name: Build with Gradle
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
