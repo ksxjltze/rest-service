@@ -28,7 +28,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - run: 'echo "DB_DATABASE=$DB_NAME\nDB_USER=$DB_USER\nDB_PASSWORD=$DB_PASSWORD" > env.properties'
+    - run: 'echo -e "DB_DATABASE=$DB_NAME\nDB_USER=$DB_USER\nDB_PASSWORD=$DB_PASSWORD" > env.properties'
       shell: bash
       env:
         DB_NAME: ${{secrets.DB_NAME}}
