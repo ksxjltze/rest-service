@@ -29,3 +29,8 @@ tasks.withType<Test> {
 tasks.jar {
 	exclude("env.properties")
 }
+
+tasks.named<Jar>("jar") {
+	enabled = false
+}
+
