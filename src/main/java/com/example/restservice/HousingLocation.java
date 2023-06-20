@@ -1,7 +1,10 @@
 package com.example.restservice;
 
-public record HousingLocation(
-    int id, 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("locations")
+public record HousingLocation(@Id int id,
     String name, 
     String city, 
     String state, 
