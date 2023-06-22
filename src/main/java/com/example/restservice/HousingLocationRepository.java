@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200, angularing.vercel.app")
 @RepositoryRestResource(collectionResourceRel = "locations", path = "locations")
 public interface HousingLocationRepository extends MongoRepository<HousingLocation, Integer> {
     @Query("{name:'?0'}")
