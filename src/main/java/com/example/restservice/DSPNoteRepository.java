@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://angularing.vercel.app")
+@CrossOrigin(origins = {"http://localhost:4200", "https://angularing.vercel.app"})
 @RepositoryRestResource(collectionResourceRel = "dspnotes", path = "dspnotes")
 public interface DSPNoteRepository extends MongoRepository<DSPNote, String> {
     @Query("{name:'?0'}")
