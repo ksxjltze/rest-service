@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
-@RepositoryRestResource(collectionResourceRel = "locations", path = "locations")
-public interface HousingLocationRepository extends MongoRepository<HousingLocation, Integer> {
+@RepositoryRestResource(collectionResourceRel = "dspsystems", path = "dspsystems")
+public interface DSPSystemRepository extends MongoRepository<DSPSystem, String> {
     @Query("{name:'?0'}")
-    HousingLocation findItemByName(String name);
+    DSPSystem findItemByName(String name);
 
-    @Query(value="{city:'?0'}", fields="{'name' : 1}")
-    List<HousingLocation> findAll(String city);
+    @Query(value="{name:'?0'}", fields="{'name' : 1}")
+    List<DSPSystem> findAll(String name);
 
     public long count();
 }

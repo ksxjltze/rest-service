@@ -1,5 +1,6 @@
 package com.example.restservice;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
@@ -23,6 +24,12 @@ public class RestServiceApplication implements CommandLineRunner{
 
 	@Autowired
 	HousingLocationRepository housingLocationRepo;
+
+	@Autowired
+	DSPNoteRepository dspNoteRepository;
+
+	@Autowired
+	DSPSystemRepository dspSystemRepository;
 
 	List<HousingLocation> housingLocations;
 
@@ -49,6 +56,10 @@ public class RestServiceApplication implements CommandLineRunner{
 		housingLocations = housingLocationRepo.findAll();
 
 		housingLocations.forEach(item -> System.out.println(getHousingLocationDetails(item)));
+
+		DSPSystem testSystem = new DSPSystem(new ObjectId(), "Test");
+		dspSystemRepository.save(testSystem);
+		dspNoteRepository.save(new DSPNote(new ObjectId(), "Test", "Test", testSystem));
 
 
 		// Clean up any previous data
