@@ -57,12 +57,12 @@ public class RestServiceApplication implements CommandLineRunner{
 
 		housingLocations.forEach(item -> System.out.println(getHousingLocationDetails(item)));
 
-		DSPSystem testSystem = new DSPSystem(new ObjectId(), "Test");
+		DSPSystem testSystem = new DSPSystem(new ObjectId(), "System", "G");
 		dspSystemRepository.deleteAll();
 		dspSystemRepository.save(testSystem);
 
 		dspNoteRepository.deleteAll();
-		dspNoteRepository.save(new DSPNote(new ObjectId(), "Test", "Test", testSystem));
+		dspNoteRepository.save(new DSPNote(new ObjectId(), "Planet", "Test", testSystem));
 
 
 		// Clean up any previous data

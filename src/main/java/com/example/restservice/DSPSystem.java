@@ -5,5 +5,5 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("dspsystem")
-public record DSPSystem(@Id ObjectId id, String name) {
+public record DSPSystem(@Id ObjectId id, String name, String type) {
 }
